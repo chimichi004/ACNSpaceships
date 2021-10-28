@@ -48,7 +48,7 @@ const SpaceshipForm = (props) => {
     resetHyperdriverRating();
 
     props.onSubmitHandler({
-      id: props.numOfSpaceShips + 1,
+      id: 'ABC' + Math.random(),
       name: spaceshipNameValue,
       manufacturer: manufacturerValue,
       hyperdrive_rating: hyperdriverRatingValue,

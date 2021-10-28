@@ -6,7 +6,7 @@ import classes from "./Spaceships.module.css";
 const Spaceships = (props) => {
   return (
     <>
-      <ul className={classes["spaceships-list"]}>
+      <div className="row">
         {props.spaceships.map((spaceship) => (
           <Spaceship
             key={spaceship.id}
@@ -15,7 +15,7 @@ const Spaceships = (props) => {
             hyperdrive_rating={spaceship.hyperdrive_rating}
           />
         ))}
-      </ul>
+      </div>
     </>
   );
 };
