@@ -2,17 +2,15 @@ import classes from "./Spaceship.module.css";
 
 const Spaceship = (props) => {
   return (
-    <li className={` ${classes.spaceship}`}>
-      <div className="row">
-        <div className="col-6">
-          <h2>{props.name}</h2>
+    <div className="col-lg-6" key={props.model}>
+    <div className="card">
+        <div className="card-body">
+        <h3 className="card-title">{props.name}</h3>
+        <p>{props.manufacturer}</p>
+         <span className="text-danger bold-500">{props.hyperdrive_rating}</span>
         </div>
-        <div className="col-6">
-          <h3>{props.manufacturer}</h3>
-          <p>{props.hyperdrive_rating}</p>
-        </div>
-      </div>
-    </li>
+    </div>
+    </div>
   );
 };
 

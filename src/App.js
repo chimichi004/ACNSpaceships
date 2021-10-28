@@ -23,9 +23,9 @@ function App() {
 
       const data = await response.json();
 
-      const newShips = data.results.map((ship, key) => {
+      const newShips = data.results.map((ship) => {
         return {
-          id: key,
+          id: ship.model,
           name: ship.name,
           manufacturer: ship.manufacturer,
           hyperdrive_rating: ship.hyperdrive_rating,
@@ -140,7 +140,7 @@ function App() {
       <main className="app">
         <NavBar />
         <div className="container">
-          <SpaceshipForm numOfSpaceShips={spaceships.length} onSubmitHandler={submitHandler}/>
+          <SpaceshipForm onSubmitHandler={submitHandler}/>
         </div>
         <div className="container">{content}</div>
       </main>
