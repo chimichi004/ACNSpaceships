@@ -2,9 +2,9 @@ import logo from "../../assets/accenture.png";
 
 const NavBar = () => {
   return (
-    <nav class=" navbar-dark bg-dark sticky-top py-1">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+    <nav className=" navbar-light bg-light sticky-top py-1 shadow">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="#">
           <img
             src={logo}
             width="40"

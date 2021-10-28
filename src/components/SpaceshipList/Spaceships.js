@@ -1,7 +1,6 @@
 import React from "react";
 
 import Spaceship from "./SpaceshipItem/Spaceship";
-import classes from "./Spaceships.module.css";
 
 const Spaceships = (props) => {
   return (
