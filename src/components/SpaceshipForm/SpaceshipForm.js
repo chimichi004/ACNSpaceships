@@ -1,8 +1,12 @@
+import { useDispatch } from 'react-redux'
+import { addSpaceship } from '../../store/actions/spaceshipActions';
 import useInput from "../../hooks/use-input";
 
 const isNotEmpty = (value) => value.trim() !== "";
 
-const SpaceshipForm = (props) => {
+const SpaceshipForm = () => {
+    const dispatch  = useDispatch();
+
   const {
     value: spaceshipNameValue,
     isValid: spaceshipNameIsValid,
@@ -43,39 +47,40 @@ const SpaceshipForm = (props) => {
       return;
     }
 
+    dispatch(addSpaceship({
+        name: spaceshipNameValue,
+        manufacturer: manufacturerValue,
+        hyperdrive_rating: hyperdriverRatingValue,
+      }));
+
     resetSpaceshipName();
     resetManufacturer();
     resetHyperdriverRating();
 
-    props.onSubmitHandler({
-      id: 'ABC' + Math.random(),
-      name: spaceshipNameValue,
-      manufacturer: manufacturerValue,
-      hyperdrive_rating: hyperdriverRatingValue,
-    });
+  
   };
 
   return (
-    <div className="card mt-2">
+    <div className="container">
+  <div className="card mt-2">
       <div className="card-body">
         <form  onSubmit={submitHandler}>
-          <div class="form-group">
-            <label for="spaceshipname">Spaceship Name</label>
+          <div className="form-group">
+            <label htmlFor="spaceshipname">Spaceship Name</label>
             <input
               type="text"
               id="spaceshipname"
               value={spaceshipNameValue}
               onChange={spaceshipNameChangeHandler}
               onBlur={spaceshipNameBlurHandler}
-              c
               className="form-control"
             />
             {spaceshipNameHasError && (
               <p className="error-text text-danger">Please enter a spaceship name.</p>
             )}
           </div>
-          <div class="form-group">
-            <label for="manufacturer">Manufacturer</label>
+          <div className="form-group">
+            <label htmlFor="manufacturer">Manufacturer</label>
             <input
               type="text"
               id="manufacturer"
@@ -88,8 +93,8 @@ const SpaceshipForm = (props) => {
               <p className="error-text  text-danger">Please enter manufacturer.</p>
             )}
           </div>
-          <div class="form-group">
-            <label for="hyperdriverRating">Hyperdrive Rating</label>
+          <div className="form-group">
+            <label htmlFor="hyperdriverRating">Hyperdrive Rating</label>
             <input
               type="number"
               id="hyperdriverRating"
@@ -107,6 +112,7 @@ const SpaceshipForm = (props) => {
           </button>
         </form>
       </div>
+    </div>
     </div>
   );
 };

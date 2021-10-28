@@ -1,4 +1,4 @@
-import classes from "./Spaceship.module.css";
+
 
 const Spaceship = (props) => {
   return (
